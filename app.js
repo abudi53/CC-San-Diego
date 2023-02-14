@@ -286,81 +286,81 @@ function queryStores(){
   let tablaRef = document.getElementById("store-table-body");
   tablaRef.innerHTML = '';
 
-  fetch('http://127.0.0.1:8080/store/list', {
-    method: 'GET'
-  })
-      .then((response) => response.json())
-      .then((data) => {
-            data.forEach(store => {
+  // fetch('http://127.0.0.1:8080/store/list', {
+  //   method: 'GET'
+  // })
+      // .then((response) => response.json())
+      // .then((data) => {
+      //       data.forEach(store => {
 
-              let rowRef = tablaRef.insertRow(-1);
+      //         let rowRef = tablaRef.insertRow(-1);
 
-              let cellRef = rowRef.insertCell(0);
-              cellRef.textContent = store.name;
+      //         let cellRef = rowRef.insertCell(0);
+      //         cellRef.textContent = store.name;
 
-              cellRef = rowRef.insertCell(1);
-              cellRef.textContent = store.code;
+      //         cellRef = rowRef.insertCell(1);
+      //         cellRef.textContent = store.code;
 
-              cellRef = rowRef.insertCell(2);
-              cellRef.textContent = store.rif;
+      //         cellRef = rowRef.insertCell(2);
+      //         cellRef.textContent = store.rif;
 
-              cellRef = rowRef.insertCell(3);
-              cellRef.textContent = store.responsible;
+      //         cellRef = rowRef.insertCell(3);
+      //         cellRef.textContent = store.responsible;
 
-              cellRef = rowRef.insertCell(4);
-              cellRef.textContent = store.email
+      //         cellRef = rowRef.insertCell(4);
+      //         cellRef.textContent = store.email
 
-              cellRef = rowRef.insertCell(5);
-              cellRef.textContent = store.phoneNo;
+      //         cellRef = rowRef.insertCell(5);
+      //         cellRef.textContent = store.phoneNo;
 
-            })
-          }
-      );
+      //       })
+      //     }
+      // );
 
   // For testing, comment fetch and uncomment:
 
-  // let data = [
-  //   {
-  //     name:"Ricardo Diaz Store",
-  //     code:"IDKIDC",
-  //     rif:"J-0123456789",
-  //     responsible: "Ricardo Diaz",
-  //     email: "rdiaz@ujap.com",
-  //     phoneNo:"+58 4128805248"
-  //   },
-  //   {
-  //     name:"Andres Santamaria Store",
-  //     code:"IDKIDC2",
-  //     rif:"J-0123456789",
-  //     responsible: "Andres Santamaria",
-  //     email: "asantamaria@ujap.com",
-  //     phoneNo:"+58 4162301542"
-  //   },
-  // ]
-  //
-  // data.forEach(store => {
-  //
-  //               let rowRef = tablaRef.insertRow(-1);
-  //
-  //               let cellRef = rowRef.insertCell(0);
-  //               cellRef.textContent = store.name;
-  //
-  //               cellRef = rowRef.insertCell(1);
-  //               cellRef.textContent = store.code;
-  //
-  //               cellRef = rowRef.insertCell(2);
-  //               cellRef.textContent = store.rif;
-  //
-  //               cellRef = rowRef.insertCell(3);
-  //               cellRef.textContent = store.responsible;
-  //
-  //               cellRef = rowRef.insertCell(4);
-  //               cellRef.textContent = store.email
-  //
-  //               cellRef = rowRef.insertCell(5);
-  //               cellRef.textContent = store.phoneNo;
-  //
-  //             })
+  let data = [
+    {
+      name:"Ricardo Diaz Store",
+      code:"IDKIDC",
+      rif:"J-0123456789",
+      responsible: "Ricardo Diaz",
+      email: "rdiaz@ujap.com",
+      phoneNo:"+58 4128805248"
+    },
+    {
+      name:"Andres Santamaria Store",
+      code:"IDKIDC2",
+      rif:"J-0123456789",
+      responsible: "Andres Santamaria",
+      email: "asantamaria@ujap.com",
+      phoneNo:"+58 4162301542"
+    },
+  ]
+  
+  data.forEach(store => {
+  
+                let rowRef = tablaRef.insertRow(-1);
+  
+                let cellRef = rowRef.insertCell(0);
+                cellRef.textContent = store.name;
+  
+                cellRef = rowRef.insertCell(1);
+                cellRef.textContent = store.code;
+  
+                cellRef = rowRef.insertCell(2);
+                cellRef.textContent = store.rif;
+  
+                cellRef = rowRef.insertCell(3);
+                cellRef.textContent = store.responsible;
+  
+                cellRef = rowRef.insertCell(4);
+                cellRef.textContent = store.email
+  
+                cellRef = rowRef.insertCell(5);
+                cellRef.textContent = store.phoneNo;
+  
+              })
 }
 
 function queryContacts(){
@@ -368,49 +368,49 @@ function queryContacts(){
   let tablaRef = document.getElementById("access-table-body");
   tablaRef.innerHTML = '';
 
-  fetch('http://127.0.0.1:8080/contact/list', {
-    method: 'GET'
-  })
-      .then((response) => response.json())
-      .then((data) => {
-            data.forEach(contact => {
+  // fetch('http://127.0.0.1:8080/contact/list', {
+  //   method: 'GET'
+  // })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //           data.forEach(contact => {
 
-              let rowRef = tablaRef.insertRow(-1);
+  //             let rowRef = tablaRef.insertRow(-1);
 
-              let cellRef = rowRef.insertCell(0);
-              cellRef.textContent = contact.name;
+  //             let cellRef = rowRef.insertCell(0);
+  //             cellRef.textContent = contact.name;
 
-              cellRef = rowRef.insertCell(1);
-              cellRef.textContent = contact.email;
+  //             cellRef = rowRef.insertCell(1);
+  //             cellRef.textContent = contact.email;
 
-            })
-          }
-      );
+  //           })
+  //         }
+  //     );
 
   // // For testing, comment fetch and uncomment:
   //
-  // let data = [
-  //   {
-  //     name:"Ricardo Diaz",
-  //     email: "rdiaz@ujap.com"
-  //   },
-  //   {
-  //     name:"Abdullah Fares",
-  //     email:"afares@ujap.com"
-  //   },
-  // ]
-  //
-  // data.forEach(contact => {
-  //
-  //   let rowRef = tablaRef.insertRow(-1);
-  //
-  //   let cellRef = rowRef.insertCell(0);
-  //   cellRef.textContent = contact.name;
-  //
-  //   cellRef = rowRef.insertCell(1);
-  //   cellRef.textContent = contact.email;
-  //
-  // })
+  let data = [
+    {
+      name:"Ricardo Diaz",
+      email: "rdiaz@ujap.com"
+    },
+    {
+      name:"Abdullah Fares",
+      email:"afares@ujap.com"
+    },
+  ]
+  
+  data.forEach(contact => {
+  
+    let rowRef = tablaRef.insertRow(-1);
+  
+    let cellRef = rowRef.insertCell(0);
+    cellRef.textContent = contact.name;
+  
+    cellRef = rowRef.insertCell(1);
+    cellRef.textContent = contact.email;
+  
+  })
 }
 
 function openMaps(){
@@ -422,7 +422,7 @@ function goIndex(){
 }
 
 function goStores(){
-  window.location.href = "stores.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
+  window.location.href = "tiendas.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
 }
 
 function goCreateStores(){
