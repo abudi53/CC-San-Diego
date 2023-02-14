@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script defer src="app.js"></script>
 </head>
-<body onload="queryContacts()">
+<body>
     <nav class="header-nav">
         <img onclick="goIndex()" class="logo" src="images/logoblack2svg.svg" alt="logo CC San Diego">
         <div class="right-links">
@@ -27,18 +27,18 @@
             </ul>
         </div>
     </nav>
-    <h2> Contactos realizados </h2>
-    <table id="access-table">
-        <thead>
-            <tr>
-                <th colspan="1">Nombre</th>
-                <th colspan="1">Email</th>
-            </tr>
-        </thead>
-        <tbody id="access-table-body">
-
-        </tbody>
-    </table>
+    <form id="form" action="">
+        <h2>Contáctanos</h2>
+        <div class="imputNom">
+            <label for="name">Nombre: </label><input type="text" name="name" id="name" required="required" placeholder="Nombre">
+        </div>
+        <div class="imputEmail">
+            <label for="email">Correo: </label><input type="text" name="email" id="email" required="required" placeholder="Correo">
+        </div>
+        <div class="Boton">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
 
 </body>
 </html>

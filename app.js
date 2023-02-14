@@ -316,6 +316,101 @@ function queryStores(){
             })
           }
       );
+
+  // For testing, comment fetch and uncomment:
+
+  // let data = [
+  //   {
+  //     name:"Ricardo Diaz Store",
+  //     code:"IDKIDC",
+  //     rif:"J-0123456789",
+  //     responsible: "Ricardo Diaz",
+  //     email: "rdiaz@ujap.com",
+  //     phoneNo:"+58 4128805248"
+  //   },
+  //   {
+  //     name:"Andres Santamaria Store",
+  //     code:"IDKIDC2",
+  //     rif:"J-0123456789",
+  //     responsible: "Andres Santamaria",
+  //     email: "asantamaria@ujap.com",
+  //     phoneNo:"+58 4162301542"
+  //   },
+  // ]
+  //
+  // data.forEach(store => {
+  //
+  //               let rowRef = tablaRef.insertRow(-1);
+  //
+  //               let cellRef = rowRef.insertCell(0);
+  //               cellRef.textContent = store.name;
+  //
+  //               cellRef = rowRef.insertCell(1);
+  //               cellRef.textContent = store.code;
+  //
+  //               cellRef = rowRef.insertCell(2);
+  //               cellRef.textContent = store.rif;
+  //
+  //               cellRef = rowRef.insertCell(3);
+  //               cellRef.textContent = store.responsible;
+  //
+  //               cellRef = rowRef.insertCell(4);
+  //               cellRef.textContent = store.email
+  //
+  //               cellRef = rowRef.insertCell(5);
+  //               cellRef.textContent = store.phoneNo;
+  //
+  //             })
+}
+
+function queryContacts(){
+
+  let tablaRef = document.getElementById("access-table-body");
+  tablaRef.innerHTML = '';
+
+  fetch('http://127.0.0.1:8080/contact/list', {
+    method: 'GET'
+  })
+      .then((response) => response.json())
+      .then((data) => {
+            data.forEach(contact => {
+
+              let rowRef = tablaRef.insertRow(-1);
+
+              let cellRef = rowRef.insertCell(0);
+              cellRef.textContent = contact.name;
+
+              cellRef = rowRef.insertCell(1);
+              cellRef.textContent = contact.email;
+
+            })
+          }
+      );
+
+  // // For testing, comment fetch and uncomment:
+  //
+  // let data = [
+  //   {
+  //     name:"Ricardo Diaz",
+  //     email: "rdiaz@ujap.com"
+  //   },
+  //   {
+  //     name:"Abdullah Fares",
+  //     email:"afares@ujap.com"
+  //   },
+  // ]
+  //
+  // data.forEach(contact => {
+  //
+  //   let rowRef = tablaRef.insertRow(-1);
+  //
+  //   let cellRef = rowRef.insertCell(0);
+  //   cellRef.textContent = contact.name;
+  //
+  //   cellRef = rowRef.insertCell(1);
+  //   cellRef.textContent = contact.email;
+  //
+  // })
 }
 
 function openMaps(){
@@ -330,13 +425,48 @@ function goStores(){
   window.location.href = "stores.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
 }
 
+function goContact(){
+  window.location.href = "contact.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
+}
+
+let form = document.getElementById("form");
+
+form.addEventListener("submit", function(eve){
+  eve.preventDefault();
+
+  let contactForm = new FormData(form);
+
+  const data = {
+    name: contactForm.get("name"),
+    email: contactForm.get("email"),
+  }
+
+  fetch('http://127.0.0.1:8080/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then( (response) =>{
+        if (response.ok){
+          goIndex();
+        } else {
+          alert("Algo mal ha ocurrido enviando el formulario")
+        }
+      }
+  )
+
+})
+
+
+
 function goAccess(){
-  let username=prompt('Por Favor Logueate, Usuario:',' ');
+  let username=prompt('Por Favor Logueate, Usuario:','');
   fetch('http://127.0.0.1:8080/user/exists?username=' + username , {
     method: 'GET'
   }).then((response) => {
       if(response.ok){
-        let password = prompt('Indique contraseña: ',' ');
+        let password = prompt('Indique contraseña: ','');
         fetch('http://127.0.0.1:8080/user/authenticate?username=' + username +"&password=" + password, {
           method: 'GET'
         }).then((response) => {
@@ -350,19 +480,6 @@ function goAccess(){
         alert("Usuario inválido");
       }
     });
-  // if (username==user1){
-  //   var pass1="password";
-  //   password=prompt('If you are suppose to be her              it now:',' ');
-  //   if (password==pass1){
-  //     alert("correct!")e you have a password. Please type
-  //   }
-  //   else {
-  //     window.location="wrongpassword.html";
-  //   }
-  // }
-  // else {
-  //   window.location="wrongpassword.html";
-  // }
 }
 
 
