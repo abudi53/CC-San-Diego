@@ -280,3 +280,90 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 
 hiddenElements.forEach((el) => observer.observe(el));
+
+function queryStores(){
+
+  let tablaRef = document.getElementById("store-table-body");
+  tablaRef.innerHTML = '';
+
+  fetch('http://127.0.0.1:8080/store/list', {
+    method: 'GET'
+  })
+      .then((response) => response.json())
+      .then((data) => {
+            data.forEach(store => {
+
+              let rowRef = tablaRef.insertRow(-1);
+
+              let cellRef = rowRef.insertCell(0);
+              cellRef.textContent = store.name;
+
+              cellRef = rowRef.insertCell(1);
+              cellRef.textContent = store.code;
+
+              cellRef = rowRef.insertCell(2);
+              cellRef.textContent = store.rif;
+
+              cellRef = rowRef.insertCell(3);
+              cellRef.textContent = store.responsible;
+
+              cellRef = rowRef.insertCell(4);
+              cellRef.textContent = store.email
+
+              cellRef = rowRef.insertCell(5);
+              cellRef.textContent = store.phoneNo;
+
+            })
+          }
+      );
+}
+
+function openMaps(){
+  window.open("https://goo.gl/maps/Jjzy5XNypzjYqmw38", "_blank")
+}
+
+function goIndex(){
+  window.location.href = "index.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
+}
+
+function goStores(){
+  window.location.href = "stores.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
+}
+
+function goAccess(){
+  let username=prompt('Por Favor Logueate, Usuario:',' ');
+  fetch('http://127.0.0.1:8080/user/exists?username=' + username , {
+    method: 'GET'
+  }).then((response) => {
+      if(response.ok){
+        let password = prompt('Indique contraseña: ',' ');
+        fetch('http://127.0.0.1:8080/user/authenticate?username=' + username +"&password=" + password, {
+          method: 'GET'
+        }).then((response) => {
+          if(response.ok){
+            window.location.href = "access.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
+          } else {
+            alert("Contraseña incorrecta");
+          }
+        })
+      } else{
+        alert("Usuario inválido");
+      }
+    });
+  // if (username==user1){
+  //   var pass1="password";
+  //   password=prompt('If you are suppose to be her              it now:',' ');
+  //   if (password==pass1){
+  //     alert("correct!")e you have a password. Please type
+  //   }
+  //   else {
+  //     window.location="wrongpassword.html";
+  //   }
+  // }
+  // else {
+  //   window.location="wrongpassword.html";
+  // }
+}
+
+
+

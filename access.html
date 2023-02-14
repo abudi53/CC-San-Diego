@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CC San Diego | Realiza Tus Compras y Disfruta ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body onload="queryStores()">
+    <nav class="header-nav">
+        <img onclick="goIndex()" class="logo" src="images/logoblack2svg.svg" alt="logo CC San Diego">
+        <div class="right-links">
+            <ul>
+                <li>Tiendas</li>
+                <li onclick="openMaps()">Direccion</li>
+                <li>Proximos Eventos</li>
+                <li>Acceso</li>
+            </ul>
+            <ul class="social">
+                <li><a href="https://www.instagram.com/cc_sandiego/"><img src="images/Instagram_logo_2022.svg" alt="Instagram logo" srcset=""></li></a>
+                <li><a href="https://twitter.com/CCSanDiego"><img src="images/Twitter-logo.svg" alt="Twitter logo" srcset=""></a></li>
+                <li></li>
+            </ul>
+        </div>
+    </nav>
+
+    <table id="store-table">
+        <thead>
+            <tr>
+                <th colspan="1">Nombre</th>
+                <th colspan="1">Local</th>
+                <th colspan="1">Rif</th>
+                <th colspan="1">Responsable</th>
+                <th colspan="1">Correo</th>
+                <th colspan="1">Teléfono</th>
+            </tr>
+        </thead>
+        <tbody id="store-table-body">
+
+        </tbody>
+    </table>
+
+</body>
+</html>
