@@ -755,3 +755,6 @@ footer {
   font-size: 2rem;
 }
 
+.tienda-nombre h2 {
+  margin-top: 0;
+}

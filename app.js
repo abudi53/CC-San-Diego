@@ -530,5 +530,37 @@ function goAccess(){
     });
 }
 
+function tiendaAddTienda(nombre, desc, imgpath) {
+  const tiendas = document.querySelector(".tiendas");
+
+  const tienda = tiendas.appendChild(document.createElement("div"));
+  tienda.classList.add("container-tienda")
+
+  const tiendaImg = tienda.appendChild(document.createElement("div"));
+  tiendaImg.classList.add("tienda-imagen");
+
+  const img = tiendaImg.appendChild(document.createElement("img"));
+  img.setAttribute("src", imgpath);
+
+  const tiendaDatos = tienda.appendChild(document.createElement("div"));
+  tiendaDatos.classList.add("tienda-datos");
+
+  const tiendaNombre = tiendaDatos.appendChild(document.createElement("div"));
+  tiendaNombre.classList.add("tienda-nombre");
+
+  const tiendaDesc = tiendaDatos.appendChild(document.createElement("div"));
+  tiendaDesc.classList.add("tienda-desc");
+
+  const h2 = tiendaNombre.appendChild(document.createElement("h2"));
+  h2.textContent = nombre;
+
+  tiendaDesc.textContent = desc;
 
 
+}
+
+const desc = "Lo último en moda femenina 🤩💜 Si necesitas renovar tu closet, o necesitas una prenda específica para completar tu outfit en @bkhul_ lo tienen para ti😉💜";
+const nombre = "NuevaTienda";
+const imgpath = "images/tienda1.jpg";
+
+tiendaAddTienda(nombre, desc, imgpath);
