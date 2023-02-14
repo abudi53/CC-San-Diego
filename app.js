@@ -425,39 +425,87 @@ function goStores(){
   window.location.href = "stores.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
 }
 
+function goCreateStores(){
+  window.location.href = "create-store.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
+}
+
 function goContact(){
   window.location.href = "contact.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
 }
 
+function goAccessContacts(){
+  window.location.href = "access.html?_ijt=esv3shl6q883cfc032bpmmr8r0";
+}
+
 let form = document.getElementById("form");
 
-form.addEventListener("submit", function(eve){
-  eve.preventDefault();
+if (form){
+  form.addEventListener("submit", function(eve){
+    eve.preventDefault();
 
-  let contactForm = new FormData(form);
+    let contactForm = new FormData(form);
 
-  const data = {
-    name: contactForm.get("name"),
-    email: contactForm.get("email"),
-  }
+    const data = {
+      name: contactForm.get("name"),
+      email: contactForm.get("email"),
+    }
 
-  fetch('http://127.0.0.1:8080/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then( (response) =>{
-        if (response.ok){
-          goIndex();
-        } else {
-          alert("Algo mal ha ocurrido enviando el formulario")
+    fetch('http://127.0.0.1:8080/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then( (response) =>{
+          if (response.ok){
+            goIndex();
+          } else {
+            alert("Algo mal ha ocurrido enviando el formulario")
+          }
         }
-      }
-  )
+    )
 
-})
+  });
+}
 
+
+let storeForm = document.getElementById("store-form");
+
+if(storeForm){
+  storeForm.addEventListener("submit", function(eve){
+    eve.preventDefault();
+
+    console.log("called")
+    let createStoreForm = new FormData(storeForm);
+
+    const data = {
+      name: createStoreForm.get("name"),
+      code: createStoreForm.get("code"),
+      rif: createStoreForm.get("rif"),
+      responsible: createStoreForm.get("responsible"),
+      email: createStoreForm.get("email"),
+      phoneNo: createStoreForm.get("phoneNo"),
+    }
+
+    console.log(data);
+
+    fetch('http://127.0.0.1:8080/store', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then( (response) =>{
+          if (response.ok){
+            queryStores();
+          } else {
+            alert("Algo mal ha ocurrido enviando el formulario")
+          }
+        }
+    )
+
+  });
+}
 
 
 function goAccess(){

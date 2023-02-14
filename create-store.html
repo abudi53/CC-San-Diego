@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CC San Diego | Realiza Tus Compras y Disfruta ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body onload="queryStores()">
+    <nav class="header-nav">
+        <img onclick="goIndex()" class="logo" src="images/logoblack2svg.svg" alt="logo CC San Diego">
+        <div class="right-links">
+            <ul>
+                <li onclick="goCreateStores()">Tiendas</li>
+                <li onclick="goAccessContacts()">Contacto</li>
+                <li onclick="goIndex()">Salir</li>
+            </ul>
+        </div>
+    </nav>
+
+    <form id="store-form" action="">
+        <h2>Contáctanos</h2>
+
+        <label for="name">Nombre Tienda: </label>
+        <input type="text" name="name" id="name" required="required" placeholder="Nombre">
+        <br>
+        <label for="code">Local: </label>
+        <input type="text" name="code" id="code" required="required" placeholder="Local">
+        <br>
+        <label for="rif">Rif: </label>
+        <input type="text" name="rif" id="rif" required="required" placeholder="J-0123456789">
+        <br>
+        <label for="responsible">Responsable: </label>
+        <input type="text" name="responsible" id="responsible" required="required" placeholder="Nombre Responsable">
+        <br>
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="email" required="required" placeholder="user@email.com">
+        <br>
+        <label for="phoneNo">Local: </label>
+        <input type="text" name="phoneNo" id="phoneNo" required="required" placeholder="+58 1234567891">
+        <br>
+        <br>
+        <div class="Boton">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+    <table id="store-table">
+        <thead>
+            <tr>
+                <th colspan="1">Nombre</th>
+                <th colspan="1">Local</th>
+                <th colspan="1">Rif</th>
+                <th colspan="1">Responsable</th>
+                <th colspan="1">Correo</th>
+                <th colspan="1">Teléfono</th>
+            </tr>
+        </thead>
+        <tbody id="store-table-body">
+
+        </tbody>
+    </table>
+
+</body>
+</html>
